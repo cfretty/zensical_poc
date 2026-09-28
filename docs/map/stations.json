@@ -1,0 +1,464 @@
+{
+  "lines": {
+    "Timeline": "#400040",
+    "Career": "#008040",
+    "Life": "#ff8000",
+    "Education": "#ffff00",
+    "Places & People": "#0896d7"
+  },
+  "stations": {
+    "year-1972": {
+      "name": "1972",
+      "description": "Early years.",
+      "year": 1972,
+      "lines": [
+        "Timeline"
+      ],
+      "image": null
+    },
+    "purdue": {
+      "name": "Purdue",
+      "description": "We live in married housing when my dad attends grad school.",
+      "year": 1973,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "lil-sis": {
+      "name": "Lil Sis",
+      "description": "My long-awaited sister arrives, but it's not all roses.",
+      "year": 1978,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "school": {
+      "name": "School",
+      "description": "I start kindergarten, another long-awaited beginning and meet my best childhood friend.",
+      "year": 1979,
+      "lines": [
+        "Life",
+        "Education",
+        "Places & People"
+      ],
+      "image": null
+    },
+    "wakely": {
+      "name": "Wakely",
+      "description": "Wakely, 22, dies after a brief and brutal battle with non-Hodgkin's lymphoma.",
+      "year": 1983,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "jeni": {
+      "name": "Jeni",
+      "description": "Meet Jennifer, who eventually becomes a lifelong friend.",
+      "year": 1982,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "quit-dance": {
+      "name": "Quit dance",
+      "description": "I leave dance.",
+      "year": 1985,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "tresa": {
+      "name": "Tresa",
+      "description": "I meet Tresa, who jokes she's my 2nd friend. She leaves home a few days after graduation and I never hear from her again.",
+      "year": 1987,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "get-a-job": {
+      "name": "Get a job",
+      "description": "I had two jobs that first summer: DQ and Russells. Got fired from Russells.",
+      "year": 1987,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "julie": {
+      "name": "Julie",
+      "description": "The new girl ends up being a lifelong friend.",
+      "year": 1988,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "leave-church": {
+      "name": "Leave church",
+      "description": "I am confirmed, but ultimately leave the church.",
+      "year": 1988,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "fall-in-love": {
+      "name": "Fall in love",
+      "description": "First love, and it's big and goes on far too long.",
+      "year": 1990,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "msu": {
+      "name": "MSU",
+      "description": "I attend Moorhead State (now Minnesota State - Moorhead.",
+      "year": 1991,
+      "lines": [
+        "Education"
+      ],
+      "image": null
+    },
+    "fargo-moorhead": {
+      "name": "Fargo/Moorhead",
+      "description": "Move to Fargo-Moorhead for the college years.",
+      "year": 1991,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "scholarship-dnq": {
+      "name": "Scholarship - DNQ",
+      "description": "I was a candidate for an academic scholarship, but did not get it, flopped the interview.",
+      "year": 1991,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "academic-probation": {
+      "name": "Academic Probation",
+      "description": "First taste of academic failure. I learned some hard lessons.",
+      "year": 1992,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "year-1991": {
+      "name": "1991",
+      "description": "College years.",
+      "year": 1991,
+      "lines": [
+        "Timeline"
+      ],
+      "image": null
+    },
+    "add-a-major": {
+      "name": "Add a major",
+      "description": "Realizing I can do much with an English major and decide to stay an extra year to add a double major.",
+      "year": 1994,
+      "lines": [
+        "Education"
+      ],
+      "image": null
+    },
+    "foc": {
+      "name": "FoC",
+      "description": "Intership becomes event planning for inaugural Festival of Champions. I do not learn to love horses.",
+      "year": 1995,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "ba": {
+      "name": "BA",
+      "description": "Bachelor of Arts in English and Mass Communications with a minor in Humanities.",
+      "year": null,
+      "lines": [
+        "Education"
+      ],
+      "image": null
+    },
+    "minneapolis": {
+      "name": "Minneapolis",
+      "description": "I move to Minneapolis.",
+      "year": 1996,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "year-1996": {
+      "name": "1996",
+      "description": "Early career.",
+      "year": 1996,
+      "lines": [
+        "Timeline"
+      ],
+      "image": null
+    },
+    "real-job": {
+      "name": "Real Job",
+      "description": "I get my first tech writing job and great mentors.",
+      "year": 1997,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "live-with-cousins": {
+      "name": "Live with cousins",
+      "description": "I decide to live with family.",
+      "year": 1998,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "consulting": {
+      "name": "Consulting",
+      "description": "I take a job as a consultant. Just ahead of Y2K was a great time to be a consultant. I made many great friends.",
+      "year": 1998,
+      "lines": [
+        "Career",
+        "Places & People"
+      ],
+      "image": null
+    },
+    "amy": {
+      "name": "Amy",
+      "description": "Met Amy doing a contract at Beckman Coulter.",
+      "year": 1999,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "paris": {
+      "name": "Paris",
+      "description": "I take my sister to Paris as a graduation gift.",
+      "year": null,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "broken-heart": {
+      "name": "Broken Heart",
+      "description": "Finally broke it off with the high school sweetheart.",
+      "year": 2000,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "lawson": {
+      "name": "Lawson",
+      "description": "Got the job I had targeted years.",
+      "year": 2001,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "jampee": {
+      "name": "Jampee",
+      "description": "Jampee dies by suicide 3 days before 9/11.",
+      "year": 2001,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "les": {
+      "name": "Jerk",
+      "description": "My mentor, who is my father's age, hits on me. Crushed.",
+      "year": 2002,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "jeff": {
+      "name": "Jeff",
+      "description": "Went on a blind date, fell in love.",
+      "year": 2004,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "australia": {
+      "name": "Australia",
+      "description": "Jeff and I go to Australia to see friends.",
+      "year": 2005,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "manila": {
+      "name": "Manila",
+      "description": "First work trip to Manila with Chris.",
+      "year": 2006,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "buy-a-house": {
+      "name": "Buy a house",
+      "description": "Jeff and I buy a home together.",
+      "year": 2006,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "elope": {
+      "name": "Elope",
+      "description": "Jeff and I elope to Tofino, B.C.",
+      "year": 2007,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "healthland": {
+      "name": "Healthland",
+      "description": "Lawson is acquired and I go to Healthland.",
+      "year": 2011,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "female-ceo": {
+      "name": "Female CEO",
+      "description": "I join Healthland to work for a woman CEO.",
+      "year": 2011,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "year-2011": {
+      "name": "2011",
+      "description": "Midlife.",
+      "year": 2011,
+      "lines": [
+        "Timeline"
+      ],
+      "image": null
+    },
+    "emergency-surgery": {
+      "name": "Emergency surgery",
+      "description": "A broken tooth snowballs into hospitalization and emergency surgery.",
+      "year": 2012,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "infor": {
+      "name": "Infor",
+      "description": "I return to the former Lawson and embark on the most fulfilling years of work.",
+      "year": 2013,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "estrangement": {
+      "name": "Estrangement",
+      "description": "I am estranged from my sister for over a year.",
+      "year": 2017,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "norway": {
+      "name": "Norway",
+      "description": "My cousins and I take my uncle to meet family in Norway.",
+      "year": 2019,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "layoff": {
+      "name": "Layoff",
+      "description": "Dismissed during a brutal RIF, a few weeks before my 50 birthday.",
+      "year": 2022,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "chris": {
+      "name": "Chris",
+      "description": "Beloved colleague of 20+ years passes away days before my birthday. He has just turned 50.",
+      "year": 2022,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "mnit": {
+      "name": "MNIT",
+      "description": "I join the state to be a solo (and only) tech writer.",
+      "year": 2023,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+    "union": {
+      "name": "Union",
+      "description": "I finally get to join a union and it is amazing.",
+      "year": 2023,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "buy-condo": {
+      "name": "Buy condo",
+      "description": "Concerned for my folks, we buy a condo near us and rent it to them.",
+      "year": 2025,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "anosmia": {
+      "name": "Anosmia",
+      "description": "On Groundhog's Day, I fall and fracture my skull. I lost my sense of smell and taste.",
+      "year": 2026,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
+    "year-2026": {
+      "name": "2026",
+      "description": "You are here.",
+      "year": 2026,
+      "lines": [
+        "Timeline"
+      ],
+      "image": null
+    }
+  }
+}

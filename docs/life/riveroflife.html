@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>River of Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EA; --ink:#2B2A28; --ink-soft:#726E66; --line:#E1DCCE; --band:#EFEAE0;
+  --river-top:#8FC3DE; --river-bot:#215F78; --river-glow:#EAF6FB;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#1C1B18; --ink:#EEE9DE; --ink-soft:#A39C8E; --line:#37342C; --band:#242219; }
+}
+:root[data-theme="dark"]{ --bg:#1C1B18; --ink:#EEE9DE; --ink-soft:#A39C8E; --line:#37342C; --band:#242219; }
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;min-height:100%;}
+h1{font-family:'Fraunces',serif;font-weight:500;font-size:27px;margin:0;}
+header{padding:26px 20px 6px;max-width:640px;margin:0 auto;}
+header p{color:var(--ink-soft);font-size:13.5px;margin:8px 0 0;max-width:52ch;line-height:1.5;}
+.range{display:flex;gap:16px;align-items:center;margin-top:14px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+.range label{display:flex;align-items:center;gap:6px;}
+.range input{width:66px;padding:5px 7px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:4px;font-family:inherit;font-size:13px;}
+.toolbar{max-width:640px;margin:12px auto 0;padding:0 20px;display:flex;gap:9px;flex-wrap:wrap;}
+button{font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;border-radius:4px;}
+.btn-primary{background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:8px 15px;}
+.btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line);padding:8px 13px;}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink-soft);}
+#ioNote{max-width:640px;margin:0 auto;padding:6px 20px 0;font-size:12px;color:var(--ink-soft);display:none;}
+.caption{max-width:640px;margin:14px auto 2px;padding:0 20px;font-size:12.5px;color:var(--ink-soft);}
+#legend{max-width:640px;margin:8px auto 4px;padding:0 20px;display:flex;flex-wrap:wrap;gap:10px 16px;font-size:12.5px;}
+#legend .chip{display:flex;align-items:center;gap:6px;color:var(--ink-soft);}
+#legend .sw{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+#form{max-width:640px;margin:14px auto;padding:16px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:none;}
+#form.open{display:block;}
+.frow{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px;align-items:flex-end;}
+.field{display:flex;flex-direction:column;gap:4px;}
+.field label{font-size:11.5px;color:var(--ink-soft);}
+.field input,.field textarea{font-family:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:4px;}
+.field input[type=number]{width:85px;}
+.field input[type=text]{width:190px;}
+.field textarea{width:100%;min-height:44px;resize:vertical;}
+.sentiment-toggle{display:flex;gap:6px;}
+.sentiment-toggle button{padding:7px 11px;border:1px solid var(--line);background:transparent;color:var(--ink-soft);}
+.sentiment-toggle button.active[data-s="1"]{background:#E4EFE7;border-color:#4C7A6B;color:#3C6252;}
+.sentiment-toggle button.active[data-s="0"]{background:var(--band);border-color:var(--ink-soft);color:var(--ink);}
+.sentiment-toggle button.active[data-s="-1"]{background:#F1E5DE;border-color:#A6553C;color:#8A4530;}
+#imgPreview{width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid var(--line);display:none;}
+.form-actions{display:flex;gap:10px;}
+
+#empty{max-width:44ch;margin:40px auto;padding:0 20px;color:var(--ink-soft);font-size:14px;text-align:center;line-height:1.6;}
+#riverRow{display:flex;justify-content:center;gap:10px;padding:10px 12px 60px;}
+#ruler{flex:0 0 30px;position:relative;}
+#ruler span{position:absolute;left:0;font-size:10.5px;color:var(--ink-soft);transform:translateY(-50%);}
+#riverCol{position:relative;width:100%;max-width:380px;}
+#riverCol svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.node{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:#fff;box-shadow:0 0 0 3px var(--bg);}
+.node img{width:100%;height:100%;object-fit:cover;}
+
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;z-index:10;padding:20px;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:20px;max-width:380px;width:100%;}
+.modal img{width:100%;max-height:220px;object-fit:cover;border-radius:5px;margin-bottom:12px;}
+.modal h3{font-family:'Fraunces',serif;font-size:19px;margin:0 0 4px;}
+.modal .meta{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+.modal p{font-size:14px;line-height:1.55;margin:0 0 16px;}
+.modal .modal-actions{display:flex;justify-content:space-between;}
+.link-btn{background:none;border:none;color:var(--ink-soft);font-size:13px;text-decoration:underline;padding:0;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>River of Life</h1>
+  <p>Your years flow down the page. The river bends right for the high points, left for the hard ones — and stays centered when things were simply steady.</p>
+  <div class="range">
+    <label>From year <input type="number" id="startYear"></label>
+    <label>To year <input type="number" id="endYear"></label>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="btn-primary" id="openForm">+ Add an event</button>
+  <button class="btn-ghost" id="exportBtn">Export</button>
+  <button class="btn-ghost" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept=".json,application/json" style="display:none;">
+  <button class="btn-ghost" id="resetAll">Clear all</button>
+</div>
+<div id="ioNote"></div>
+<div id="legend"></div>
+
+<div id="form">
+  <div class="frow">
+    <div class="field"><label>Year</label><input type="number" id="fYear" placeholder="2019"></div>
+    <div class="field"><label>Category</label><input type="text" id="fCategory" list="catList" placeholder="Career"></div>
+    <datalist id="catList"></datalist>
+    <div class="field"><label>Title</label><input type="text" id="fTitle" placeholder="Started new job"></div>
+  </div>
+  <div class="frow">
+    <div class="field"><label>How did it feel?</label>
+      <div class="sentiment-toggle" id="sentToggle">
+        <button type="button" data-s="1">High (right)</button>
+        <button type="button" data-s="0" class="active">Steady (center)</button>
+        <button type="button" data-s="-1">Low (left)</button>
+      </div>
+    </div>
+    <div class="field"><label>Photo (optional)</label><input type="file" id="fImage" accept="image/*"></div>
+    <img id="imgPreview">
+  </div>
+  <div class="frow">
+    <div class="field" style="flex:1;min-width:220px;"><label>Note (optional)</label><textarea id="fNote" placeholder="What happened, and why it mattered"></textarea></div>
+  </div>
+  <div class="form-actions">
+    <button class="btn-primary" id="saveEvent">Add to river</button>
+    <button class="btn-ghost" id="cancelForm">Cancel</button>
+  </div>
+</div>
+
+<div id="empty">Nothing plotted yet. Add your first event above — try your birth year, a big move, or the year everything changed.</div>
+<div id="riverRow" style="display:none;">
+  <div id="ruler"></div>
+  <div id="riverCol"><svg id="riverSvg"></svg></div>
+</div>
+
+<div class="modal-bg" id="confirmBg">
+  <div class="modal">
+    <p id="confirmMsg" style="margin-bottom:18px;"></p>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="confirmCancel">Cancel</button>
+      <button class="btn-primary" id="confirmYes">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <img id="mImg" style="display:none;">
+    <h3 id="mTitle"></h3>
+    <div class="meta" id="mMeta"></div>
+    <p id="mNote"></p>
+    <div class="modal-actions">
+      <button class="link-btn" id="mDelete">Delete this event</button>
+      <button class="btn-ghost" id="mClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DEFAULT_CATS = ['Career','Relationships','Health','Places','Growth'];
+const PALETTE = ['#B8892B','#4C7A6B','#8C6E9C','#59688A','#A6553C','#5E7A4D','#9C5B6B','#3E7C89'];
+const PX_YEAR = 66;
+let events = [], meta = {start:null,end:null}, catColors = {}, sentiment = 0, pendingImage = null;
+
+async function load(){
+  try{
+    events = JSON.parse(localStorage.getItem('lifemap-events')||'[]');
+    meta = JSON.parse(localStorage.getItem('lifemap-meta')||'null') || {start:null,end:null};
+    catColors = JSON.parse(localStorage.getItem('lifemap-catcolors')||'{}');
+  }catch(e){ events=[]; meta={start:null,end:null}; catColors={}; }
+  const now = new Date().getFullYear();
+  if(!meta.start) meta.start = now-30;
+  if(!meta.end) meta.end = now;
+  try{
+    const res = await fetch('life-map-data.json', {cache:'no-store'});
+    if(res.ok){
+      const data = await res.json();
+      if(data && Array.isArray(data.events)){
+        events = data.events;
+        if(data.meta && data.meta.start && data.meta.end) meta = data.meta;
+        if(data.categoryColors) catColors = data.categoryColors;
+      }
+    }
+  }catch(e){}
+}
+function save(){
+  try{
+    localStorage.setItem('lifemap-events', JSON.stringify(events));
+    localStorage.setItem('lifemap-meta', JSON.stringify(meta));
+    localStorage.setItem('lifemap-catcolors', JSON.stringify(catColors));
+  }catch(e){}
+}
+function colorFor(cat){
+  if(!catColors[cat]) catColors[cat] = PALETTE[Object.keys(catColors).length % PALETTE.length];
+  return catColors[cat];
+}
+function categories(){
+  const set = new Set(DEFAULT_CATS);
+  events.forEach(e=>set.add(e.category));
+  return Array.from(set);
+}
+function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function smoothPath(pts){
+  if(pts.length<2) return '';
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for(let i=0;i<pts.length-1;i++){
+    const p0 = pts[i-1] || pts[i], p1 = pts[i], p2 = pts[i+1], p3 = pts[i+2] || p2;
+    const c1x = p1.x + (p2.x-p0.x)/6, c1y = p1.y + (p2.y-p0.y)/6;
+    const c2x = p2.x - (p3.x-p1.x)/6, c2y = p2.y - (p3.y-p1.y)/6;
+    d += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2.x} ${p2.y}`;
+  }
+  return d;
+}
+
+function render(){
+  document.getElementById('startYear').value = meta.start;
+  document.getElementById('endYear').value = meta.end;
+  document.getElementById('catList').innerHTML = categories().map(c=>`<option value="${escapeHtml(c)}">`).join('');
+  document.getElementById('legend').innerHTML = categories().filter(c=>events.some(e=>e.category===c)).map(c=>
+    `<span class="chip"><span class="sw" style="background:${colorFor(c)}"></span>${escapeHtml(c)}</span>`).join('') +
+    `<span class="chip" style="margin-left:8px;">→ high &nbsp; · &nbsp; center = steady &nbsp; · &nbsp; ← low</span>`;
+
+  const empty = document.getElementById('empty'), row = document.getElementById('riverRow');
+  if(events.length===0){ empty.style.display='block'; row.style.display='none'; return; }
+  empty.style.display='none'; row.style.display='flex';
+
+  let s = meta.start, e = meta.end;
+  events.forEach(ev=>{ if(ev.year<s)s=ev.year; if(ev.year>e)e=ev.year; });
+  if(e<=s) e=s+1;
+  const H = (e-s)*PX_YEAR + 60;
+  document.getElementById('riverCol').style.height = H+'px';
+
+  const ruler = document.getElementById('ruler');
+  ruler.style.height = H+'px';
+  const step = (e-s)>45?5:(e-s)>20?2:1;
+  let ticks='';
+  for(let y=s;y<=e;y++){ if((y-s)%step===0||y===e){ const ypx=(y-s)/(e-s)*(H-40)+20; ticks+=`<span style="top:${ypx}px">${y}</span>`; } }
+  ruler.innerHTML = ticks;
+
+  const CX=50, CL=20, CR=80;
+  const sorted = events.map((ev,i)=>({ev,i})).sort((a,b)=>a.ev.year-b.ev.year || a.i-b.i);
+  let lastY = -1;
+  const pts = sorted.map(({ev,i})=>{
+    let y = (ev.year-s)/(e-s)*(H-40)+20;
+    if(y<=lastY) y = lastY+14;
+    lastY = y;
+    const x = ev.sentiment===1?CR:ev.sentiment===-1?CL:CX;
+    return {x,y,ev,i};
+  });
+  const pathPts = [{x:CX,y:6}, ...pts.map(p=>({x:p.x,y:p.y})), {x:CX,y:H-6}];
+  const d = smoothPath(pathPts);
+
+  const svg = document.getElementById('riverSvg');
+  svg.setAttribute('viewBox', `0 0 100 ${H}`);
+  svg.setAttribute('preserveAspectRatio','none');
+  svg.innerHTML = `<defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--river-top)"/><stop offset="100%" stop-color="var(--river-bot)"/>
+    </linearGradient></defs>
+    <path d="${d}" fill="none" stroke="url(#rg)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+    <path d="${d}" fill="none" stroke="var(--river-glow)" stroke-width="2.2" stroke-linecap="round" opacity="0.45"/>`;
+
+  const col = document.getElementById('riverCol');
+  col.querySelectorAll('.node').forEach(n=>n.remove());
+  pts.forEach(p=>{
+    const node = document.createElement('div');
+    node.className = 'node';
+    node.style.left = p.x+'%'; node.style.top = p.y+'px';
+    node.style.background = colorFor(p.ev.category);
+    node.title = `${p.ev.title} (${p.ev.year})`;
+    node.innerHTML = p.ev.image ? `<img src="${p.ev.image}">` : escapeHtml((p.ev.category||'?')[0].toUpperCase());
+    node.addEventListener('click', ()=>openModal(p.i));
+    col.appendChild(node);
+  });
+}
+
+function showDialog(msg, withCancel){
+  return new Promise(resolve=>{
+    document.getElementById('confirmMsg').textContent = msg;
+    document.getElementById('confirmCancel').style.display = withCancel ? 'inline-block' : 'none';
+    document.getElementById('confirmBg').classList.add('open');
+    const yes = document.getElementById('confirmYes'), cancel = document.getElementById('confirmCancel');
+    function cleanup(v){ document.getElementById('confirmBg').classList.remove('open'); yes.onclick=null; cancel.onclick=null; resolve(v); }
+    yes.onclick = ()=>cleanup(true);
+    cancel.onclick = ()=>cleanup(false);
+  });
+}
+
+function openModal(idx){
+  const ev = events[idx];
+  const img = document.getElementById('mImg');
+  if(ev.image){ img.src=ev.image; img.style.display='block'; } else { img.style.display='none'; }
+  document.getElementById('mTitle').textContent = ev.title || '(untitled)';
+  const sLabel = ev.sentiment===1?'High point':ev.sentiment===-1?'Low point':'Steady';
+  document.getElementById('mMeta').textContent = `${ev.year} · ${ev.category} · ${sLabel}`;
+  document.getElementById('mNote').textContent = ev.note || '';
+  document.getElementById('mNote').style.display = ev.note ? 'block':'none';
+  document.getElementById('mDelete').onclick = ()=>{ events.splice(idx,1); save(); render(); closeModal(); };
+  document.getElementById('modalBg').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
+
+document.getElementById('openForm').onclick = ()=>document.getElementById('form').classList.add('open');
+document.getElementById('cancelForm').onclick = ()=>{ document.getElementById('form').classList.remove('open'); clearForm(); };
+document.getElementById('mClose').onclick = closeModal;
+document.getElementById('modalBg').addEventListener('click', e=>{ if(e.target.id==='modalBg') closeModal(); });
+
+document.getElementById('sentToggle').addEventListener('click', e=>{
+  const btn = e.target.closest('button'); if(!btn) return;
+  sentiment = parseInt(btn.dataset.s);
+  document.querySelectorAll('#sentToggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+});
+
+document.getElementById('fImage').addEventListener('change', e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const max=220; let w=img.width,h=img.height;
+      if(w>h){ if(w>max){h=h*max/w; w=max;} } else { if(h>max){ w=w*max/h; h=max; } }
+      const c = document.createElement('canvas'); c.width=w; c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      pendingImage = c.toDataURL('image/jpeg',0.82);
+      const prev = document.getElementById('imgPreview');
+      prev.src = pendingImage; prev.style.display='inline-block';
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('saveEvent').onclick = async ()=>{
+  const year = parseInt(document.getElementById('fYear').value);
+  const category = document.getElementById('fCategory').value.trim() || 'Other';
+  const title = document.getElementById('fTitle').value.trim();
+  const note = document.getElementById('fNote').value.trim();
+  if(!year || !title){ await showDialog('Please add at least a year and a title.', false); return; }
+  events.push({year, category, title, note, sentiment, image: pendingImage});
+  save(); clearForm();
+  document.getElementById('form').classList.remove('open');
+  render();
+};
+function clearForm(){
+  document.getElementById('fYear').value=''; document.getElementById('fCategory').value='';
+  document.getElementById('fTitle').value=''; document.getElementById('fNote').value='';
+  document.getElementById('fImage').value=''; pendingImage=null;
+  document.getElementById('imgPreview').style.display='none';
+  sentiment=0;
+  document.querySelectorAll('#sentToggle button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('#sentToggle button[data-s="0"]').classList.add('active');
+}
+
+document.getElementById('startYear').addEventListener('change', e=>{ meta.start=parseInt(e.target.value)||meta.start; save(); render(); });
+document.getElementById('endYear').addEventListener('change', e=>{ meta.end=parseInt(e.target.value)||meta.end; save(); render(); });
+document.getElementById('resetAll').onclick = async ()=>{
+  if(await showDialog('Clear every event from your river? This cannot be undone.', true)){ events=[]; save(); render(); }
+};
+
+let downloadsCap = null;
+(async function initDownloads(){
+  if(window.claude && window.claude.use){
+    try{ downloadsCap = await window.claude.use('downloads'); }catch(e){ downloadsCap=null; }
+    if(!downloadsCap){
+      const n = document.getElementById('ioNote');
+      n.textContent = "Export isn't available in this view, but Import still works if you have a file already.";
+      n.style.display = 'block';
+    }
+  }
+})();
+document.getElementById('exportBtn').onclick = async ()=>{
+  const payload = JSON.stringify({meta, events, categoryColors: catColors}, null, 2);
+  if(downloadsCap){
+    try{ await downloadsCap.save({filename:'life-map-data.json', data: payload}); return; }
+    catch(err){ if(err && err.code==='declined') return; }
+  }
+  if(window.claude && window.claude.use && !downloadsCap) return;
+  const blob = new Blob([payload], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='life-map-data.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+document.getElementById('importBtn').onclick = ()=>document.getElementById('importFile').click();
+document.getElementById('importFile').addEventListener('change', e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async ()=>{
+    let parsed;
+    try{ parsed = JSON.parse(reader.result); }catch(err){ await showDialog("That file isn't a valid life map export.", false); return; }
+    if(!parsed || !Array.isArray(parsed.events)){ await showDialog("That file isn't a valid life map export.", false); return; }
+    const ok = await showDialog(`Import ${parsed.events.length} event(s)? This replaces everything currently on your map.`, true);
+    if(!ok) return;
+    events = parsed.events;
+    meta = parsed.meta && parsed.meta.start && parsed.meta.end ? parsed.meta : meta;
+    catColors = parsed.categoryColors || catColors;
+    save(); render();
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+(async ()=>{ await load(); render(); })();
+</script>
+</body>
+</html>
