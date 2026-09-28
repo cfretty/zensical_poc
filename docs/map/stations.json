@@ -157,7 +157,7 @@
     },
     "add-a-major": {
       "name": "Add a major",
-      "description": "Realizing I can do much with an English major and decide to stay an extra year to add a double major.",
+      "description": "Realizing I cannot do much with an English major and decide to stay an extra year to add a double major.",
       "year": 1994,
       "lines": [
         "Education"
@@ -392,7 +392,7 @@
     },
     "layoff": {
       "name": "Layoff",
-      "description": "Dismissed during a brutal RIF, a few weeks before my 50 birthday.",
+      "description": "Position eliminated. RIF-ed, a few weeks before my 50th birthday.",
       "year": 2022,
       "lines": [
         "Career"
