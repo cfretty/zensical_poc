@@ -25,7 +25,7 @@ site_author: CF
 site_description: >-
   Tech doc site PoC using Material for MkDocs theme.
 
-copyright: Copyright &copy; 2023 CFretty
+copyright: Copyright &copy; 2023-2026 CFretty
 theme:
   favicon: assets/images/north-star.png
   features:
@@ -112,6 +112,8 @@ markdown_extensions:
   # Page tree see https://www.mkdocs.org/user-guide/configuration/#nav
 nav:
   - Hello: index.md
+  - Map:
+    - map/index.html
   - Get Started: 
     - quickstart/index.md
     - Install: quickstart/install-basics.md
