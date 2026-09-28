@@ -39,8 +39,8 @@
       "description": "I start kindergarten, another long-awaited beginning and meet my best childhood friend.",
       "year": 1979,
       "lines": [
-        "Life",
         "Education",
+        "Life",
         "Places & People"
       ],
       "image": null
@@ -99,39 +99,12 @@
       ],
       "image": null
     },
-    "leave-church": {
-      "name": "Leave church",
-      "description": "I am confirmed, but ultimately leave the church.",
-      "year": 1988,
-      "lines": [
-        "Life"
-      ],
-      "image": null
-    },
     "fall-in-love": {
       "name": "Fall in love",
       "description": "First love, and it's big and goes on far too long.",
       "year": 1990,
       "lines": [
         "Life"
-      ],
-      "image": null
-    },
-    "msu": {
-      "name": "MSU",
-      "description": "I attend Moorhead State (now Minnesota State - Moorhead.",
-      "year": 1991,
-      "lines": [
-        "Education"
-      ],
-      "image": null
-    },
-    "fargo-moorhead": {
-      "name": "Fargo/Moorhead",
-      "description": "Move to Fargo-Moorhead for the college years.",
-      "year": 1991,
-      "lines": [
-        "Places & People"
       ],
       "image": null
     },
@@ -144,21 +117,41 @@
       ],
       "image": null
     },
-    "academic-probation": {
-      "name": "Academic Probation",
-      "description": "First taste of academic failure. I learned some hard lessons.",
-      "year": 1992,
-      "lines": [
-        "Life"
-      ],
-      "image": null
-    },
     "year-1991": {
       "name": "1991",
       "description": "College years.",
       "year": 1991,
       "lines": [
         "Timeline"
+      ],
+      "image": null
+    },
+    "college": {
+      "name": "College",
+      "description": "I attend Moorhead State University (now Minnesota State Moorhead). Learn a lot. Make lifelong friends, work several fun jobs.",
+      "year": null,
+      "lines": [
+        "Education",
+        "Career",
+        "Places & People"
+      ],
+      "image": null
+    },
+    "fargo-moorhead": {
+      "name": "Fargo/Moorhead",
+      "description": "Move to Fargo-Moorhead for the college years.",
+      "year": 1991,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
+    "academic-probation": {
+      "name": "Academic Probation",
+      "description": "First taste of academic failure. I learned some hard lessons.",
+      "year": 1992,
+      "lines": [
+        "Life"
       ],
       "image": null
     },
@@ -176,7 +169,8 @@
       "description": "Intership becomes event planning for inaugural Festival of Champions. I do not learn to love horses.",
       "year": 1995,
       "lines": [
-        "Career"
+        "Career",
+        "Education"
       ],
       "image": null
     },
@@ -189,21 +183,21 @@
       ],
       "image": null
     },
-    "minneapolis": {
-      "name": "Minneapolis",
-      "description": "I move to Minneapolis.",
-      "year": 1996,
-      "lines": [
-        "Places & People"
-      ],
-      "image": null
-    },
     "year-1996": {
       "name": "1996",
       "description": "Early career.",
       "year": 1996,
       "lines": [
         "Timeline"
+      ],
+      "image": null
+    },
+    "minneapolis": {
+      "name": "Minneapolis",
+      "description": "I move to Minneapolis.",
+      "year": 1996,
+      "lines": [
+        "Places & People"
       ],
       "image": null
     },
@@ -218,7 +212,7 @@
     },
     "live-with-cousins": {
       "name": "Live with cousins",
-      "description": "I decide to live with family.",
+      "description": "I decide to share a duplex with family.",
       "year": 1998,
       "lines": [
         "Life"
@@ -244,15 +238,6 @@
       ],
       "image": null
     },
-    "paris": {
-      "name": "Paris",
-      "description": "I take my sister to Paris as a graduation gift.",
-      "year": null,
-      "lines": [
-        "Places & People"
-      ],
-      "image": null
-    },
     "broken-heart": {
       "name": "Broken Heart",
       "description": "Finally broke it off with the high school sweetheart.",
@@ -262,9 +247,18 @@
       ],
       "image": null
     },
+    "paris": {
+      "name": "Paris",
+      "description": "I take my sister to Paris as a graduation gift.",
+      "year": null,
+      "lines": [
+        "Places & People"
+      ],
+      "image": null
+    },
     "lawson": {
       "name": "Lawson",
-      "description": "Got the job I had targeted years.",
+      "description": "Goal achieved.",
       "year": 2001,
       "lines": [
         "Career"
@@ -273,7 +267,7 @@
     },
     "jampee": {
       "name": "Jampee",
-      "description": "Jampee dies by suicide 3 days before 9/11.",
+      "description": "Jampee dies by suicide three days before 9/11.",
       "year": 2001,
       "lines": [
         "Life"
@@ -307,15 +301,6 @@
       ],
       "image": null
     },
-    "manila": {
-      "name": "Manila",
-      "description": "First work trip to Manila with Chris.",
-      "year": 2006,
-      "lines": [
-        "Places & People"
-      ],
-      "image": null
-    },
     "buy-a-house": {
       "name": "Buy a house",
       "description": "Jeff and I buy a home together.",
@@ -325,28 +310,20 @@
       ],
       "image": null
     },
+    "manila": {
+      "name": "Manila",
+      "description": "First work trip to Manila with Chris.",
+      "year": 2006,
+      "lines": [
+        "Career",
+        "Places & People"
+      ],
+      "image": null
+    },
     "elope": {
       "name": "Elope",
       "description": "Jeff and I elope to Tofino, B.C.",
       "year": 2007,
-      "lines": [
-        "Life"
-      ],
-      "image": null
-    },
-    "healthland": {
-      "name": "Healthland",
-      "description": "Lawson is acquired and I go to Healthland.",
-      "year": 2011,
-      "lines": [
-        "Career"
-      ],
-      "image": null
-    },
-    "female-ceo": {
-      "name": "Female CEO",
-      "description": "I join Healthland to work for a woman CEO.",
-      "year": 2011,
       "lines": [
         "Life"
       ],
@@ -361,13 +338,29 @@
       ],
       "image": null
     },
+    "healthland": {
+      "name": "Healthland",
+      "description": "Lawson is acquired and I go to Healthland.",
+      "year": 2011,
+      "lines": [
+        "Career"
+      ],
+      "image": null
+    },
+      "female-ceo": {
+      "name": "Female CEO",
+      "description": "I join Healthland to work for a woman CEO.",
+      "year": 2011,
+      "lines": [
+        "Life"
+      ],
+      "image": null
+    },
     "emergency-surgery": {
       "name": "Emergency surgery",
       "description": "A broken tooth snowballs into hospitalization and emergency surgery.",
       "year": 2012,
-      "lines": [
-        "Life"
-      ],
+      "lines": [],
       "image": null
     },
     "infor": {
@@ -406,10 +399,10 @@
       ],
       "image": null
     },
-    "chris": {
-      "name": "Chris",
-      "description": "Beloved colleague of 20+ years passes away days before my birthday. He has just turned 50.",
-      "year": 2022,
+    "union": {
+      "name": "Union",
+      "description": "I finally get to join a union and it is great.",
+      "year": 2023,
       "lines": [
         "Life"
       ],
@@ -424,10 +417,10 @@
       ],
       "image": null
     },
-    "union": {
-      "name": "Union",
-      "description": "I finally get to join a union and it is amazing.",
-      "year": 2023,
+    "chris": {
+      "name": "Chris",
+      "description": "Beloved colleague of 20+ years passes away days before my birthday. He has just turned 50.",
+      "year": 2022,
       "lines": [
         "Life"
       ],
